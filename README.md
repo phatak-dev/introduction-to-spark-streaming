@@ -25,10 +25,22 @@ This tool is required for socket examples.
 
 ### 4. Testing
 
-Run the following code to make sure your build is successful
+On Linux, Run *nc* as follows 
 
-    java -cp target/spark-streaming.jar com.madhukaraphatak.sparktraining.streaming.FileStream local[2] /tmp
+     nc -l localhost 50050
+     
+then run the following command from code directory        
+  
+     java -cp target/spark-streaming.jar com.madhukaraphatak.sparktraining.streaming.WordCount local[2] localhost 50050
+    
 
+On Windows, first find out your ip address. Then run *netcat* as below      
+
+    nectcat -l <ip-address> 50050
+
+then run the following command from code directory         
+  
+    java -cp target\spark-streaming.jar com.madhukaraphatak.sparktraining.streaming.WordCount local[2] <ip-address> 50050   
 
 
 ## 5. Loading into an IDE
